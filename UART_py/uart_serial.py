@@ -14,7 +14,7 @@ class uart():
         Metodo update de portas seriais
         """
         self.portlist = [port.device for port in serial.tools.list_ports.comports()]
-        print(self.portlist)
+        return self.portlist
     
 
     def connect_serial(self):
@@ -28,9 +28,9 @@ class uart():
     
 
 
-    def ler_serial(self):
+    def ler_serial(self, size_byte):
         """Recebe dados"""
-        dados_lidos = self.serialPort.read(55).decode('utf-8')
+        dados_lidos = self.serialPort.readline().decode('utf-8')
         print(dados_lidos)
 
 
